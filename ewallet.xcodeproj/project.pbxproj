@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		88ADFD47251798800044D04B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFD46251798800044D04B /* AppDelegate.swift */; };
-		88ADFD49251798800044D04B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFD48251798800044D04B /* SceneDelegate.swift */; };
-		88ADFD4B251798800044D04B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFD4A251798800044D04B /* ViewController.swift */; };
-		88ADFD4E251798800044D04B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFD4C251798800044D04B /* Main.storyboard */; };
+		88ADFD4B251798800044D04B /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFD4A251798800044D04B /* FeedController.swift */; };
 		88ADFD50251798820044D04B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFD4F251798820044D04B /* Assets.xcassets */; };
 		88ADFD53251798820044D04B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFD51251798820044D04B /* LaunchScreen.storyboard */; };
 		88ADFD5E251798820044D04B /* ewalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFD5D251798820044D04B /* ewalletTests.swift */; };
 		88ADFD69251798820044D04B /* ewalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFD68251798820044D04B /* ewalletUITests.swift */; };
+		88BD7FC92517A020001103B4 /* FeedControllerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BD7FC82517A020001103B4 /* FeedControllerScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +36,7 @@
 /* Begin PBXFileReference section */
 		88ADFD43251798800044D04B /* ewallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ewallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88ADFD46251798800044D04B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88ADFD48251798800044D04B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		88ADFD4A251798800044D04B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		88ADFD4D251798800044D04B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88ADFD4A251798800044D04B /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		88ADFD4F251798820044D04B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88ADFD52251798820044D04B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88ADFD54251798820044D04B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +46,7 @@
 		88ADFD64251798820044D04B /* ewalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ewalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88ADFD68251798820044D04B /* ewalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ewalletUITests.swift; sourceTree = "<group>"; };
 		88ADFD6A251798820044D04B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88BD7FC82517A020001103B4 /* FeedControllerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedControllerScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +97,13 @@
 		88ADFD45251798800044D04B /* ewallet */ = {
 			isa = PBXGroup;
 			children = (
-				88ADFD46251798800044D04B /* AppDelegate.swift */,
-				88ADFD48251798800044D04B /* SceneDelegate.swift */,
-				88ADFD4A251798800044D04B /* ViewController.swift */,
-				88ADFD4C251798800044D04B /* Main.storyboard */,
+				88BD7FC125179F39001103B4 /* App */,
+				88ADFD7C2517991C0044D04B /* Components */,
+				88ADFD7F251799590044D04B /* Models */,
+				88ADFD7E2517992F0044D04B /* Screens */,
+				88ADFD7D251799270044D04B /* Controllers */,
 				88ADFD4F251798820044D04B /* Assets.xcassets */,
 				88ADFD51251798820044D04B /* LaunchScreen.storyboard */,
-				88ADFD54251798820044D04B /* Info.plist */,
 			);
 			path = ewallet;
 			sourceTree = "<group>";
@@ -126,6 +124,45 @@
 				88ADFD6A251798820044D04B /* Info.plist */,
 			);
 			path = ewalletUITests;
+			sourceTree = "<group>";
+		};
+		88ADFD7C2517991C0044D04B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		88ADFD7D251799270044D04B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				88ADFD4A251798800044D04B /* FeedController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		88ADFD7E2517992F0044D04B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				88BD7FC82517A020001103B4 /* FeedControllerScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		88ADFD7F251799590044D04B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		88BD7FC125179F39001103B4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				88ADFD46251798800044D04B /* AppDelegate.swift */,
+				88ADFD54251798820044D04B /* Info.plist */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +270,6 @@
 			files = (
 				88ADFD53251798820044D04B /* LaunchScreen.storyboard in Resources */,
 				88ADFD50251798820044D04B /* Assets.xcassets in Resources */,
-				88ADFD4E251798800044D04B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88ADFD4B251798800044D04B /* ViewController.swift in Sources */,
+				88ADFD4B251798800044D04B /* FeedController.swift in Sources */,
+				88BD7FC92517A020001103B4 /* FeedControllerScreen.swift in Sources */,
 				88ADFD47251798800044D04B /* AppDelegate.swift in Sources */,
-				88ADFD49251798800044D04B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +332,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		88ADFD4C251798800044D04B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				88ADFD4D251798800044D04B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		88ADFD51251798820044D04B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -437,15 +465,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ewallet/Info.plist;
+				INFOPLIST_FILE = ewallet/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitorleonel.ewallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -455,15 +484,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ewallet/Info.plist;
+				INFOPLIST_FILE = ewallet/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitorleonel.ewallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
