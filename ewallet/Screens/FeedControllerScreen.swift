@@ -66,8 +66,8 @@ class FeedControllerScreen: UIView {
         let _balanceLabel = UILabel()
         
         _balanceLabel.text = "Balance:"
-        _balanceLabel.textColor = UIColor(red: 11/255, green: 232/255, blue: 129/255, alpha: 1)
-        _balanceLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        _balanceLabel.textColor = .white
+        _balanceLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         
         return _balanceLabel
     }()
