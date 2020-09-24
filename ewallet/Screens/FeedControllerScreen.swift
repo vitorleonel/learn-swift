@@ -12,28 +12,120 @@ import SnapKit
 class FeedControllerScreen: UIView {
     
     lazy var header: UIView = {
-        let view = UIView()
+        let _header = UIView()
         
-        view.backgroundColor = UIColor(red: 17/255, green: 199/255, blue: 111/255, alpha: 1)
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.15
-        view.layer.shadowOffset = .zero
+        _header.backgroundColor = UIColor(red: 17/255, green: 199/255, blue: 111/255, alpha: 1)
+        _header.layer.shadowColor = UIColor.black.cgColor
+        _header.layer.shadowOpacity = 0.2
+        _header.layer.shadowOffset = .zero
+        _header.addSubview(content)
         
-        return view
+        return _header
+    }()
+    
+    lazy var content: UIView = {
+        let _content = UIView()
+        
+        _content.addSubview(avatar)
+        _content.addSubview(divider)
+        _content.addSubview(balance)
+        
+        return _content
+    }()
+    
+    lazy var avatar: UIImageView = {
+        let _avatar = UIImageView()
+        
+        _avatar.backgroundColor = .white
+        _avatar.layer.cornerRadius = 20
+        _avatar.layer.borderWidth = 0.5
+        _avatar.layer.borderColor = UIColor(red: 11/255, green: 232/255, blue: 129/255, alpha: 1).cgColor
+        
+        return _avatar
+    }()
+    
+    lazy var divider: UIView = {
+        let _divider = UIView()
+        
+        _divider.layer.borderWidth = 1
+        _divider.layer.borderColor = UIColor(red: 11/255, green: 232/255, blue: 129/255, alpha: 0.5).cgColor
+        
+        return _divider
+    }()
+    
+    lazy var balance: UIView = {
+        let _balance = UIView();
+        
+        _balance.addSubview(balanceLabel)
+        _balance.addSubview(balanceValue)
+        
+        return _balance;
+    }()
+    
+    lazy var balanceLabel: UILabel = {
+        let _balanceLabel = UILabel()
+        
+        _balanceLabel.text = "Balance:"
+        _balanceLabel.textColor = UIColor(red: 11/255, green: 232/255, blue: 129/255, alpha: 1)
+        _balanceLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        
+        return _balanceLabel
+    }()
+    
+    lazy var balanceValue: UILabel = {
+        let _balanceValue = UILabel()
+        
+        _balanceValue.text = "$1,000.00"
+        _balanceValue.textColor = .white
+        _balanceValue.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        
+        return _balanceValue
     }()
     
     override init(frame: CGRect) {
-        super.init(frame: frame);
-        
-        addSubview(header)
+        super.init(frame: frame)
+        self.addSubview(header)
         
         header.snp.makeConstraints { (make) in
             make.left.right.equalTo(self)
-            make.height.equalTo(212)
+            make.bottom.equalTo(content)
         }
         
+        content.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(16)
+            make.bottom.equalTo(balance.snp.bottom)
+        }
+        
+        avatar.snp.makeConstraints { (make) in
+            make.width.height.equalTo(40)
+            make.top.equalTo(16)
+        }
+        
+        divider.snp.makeConstraints { (make) in
+            make.width.equalToSuperview().inset(16)
+            make.height.equalTo(1)
+            make.top.equalTo(balance.snp.top)
+        }
+        
+        balance.snp.makeConstraints { (make) in
+            make.width.equalToSuperview().inset(16)
+            make.top.equalTo(avatar.snp.bottom).offset(16)
+            make.bottom.equalTo(balanceLabel.snp.bottom).offset(16)
+        }
+        
+        balanceLabel.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
+        balanceValue.snp.makeConstraints { (make) in
+            make.left.equalTo(balanceLabel.snp.right).offset(6)
+            make.centerY.equalTo(balanceLabel)
+        }
         
         backgroundColor = .white
+
     }
     
     required init?(coder: NSCoder) {
