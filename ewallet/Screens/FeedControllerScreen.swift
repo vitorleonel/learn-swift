@@ -27,6 +27,7 @@ class FeedControllerScreen: UIView {
         let _content = UIView()
         
         _content.addSubview(avatar)
+        _content.addSubview(title)
         _content.addSubview(divider)
         _content.addSubview(balance)
         
@@ -37,11 +38,24 @@ class FeedControllerScreen: UIView {
         let _avatar = UIImageView()
         
         _avatar.backgroundColor = .white
+        _avatar.image = UIImage(named: "UserAvatar")
         _avatar.layer.cornerRadius = 20
-        _avatar.layer.borderWidth = 0.5
+        _avatar.layer.borderWidth = 1
         _avatar.layer.borderColor = UIColor(red: 11/255, green: 232/255, blue: 129/255, alpha: 1).cgColor
+        _avatar.layer.masksToBounds = true
+    
         
         return _avatar
+    }()
+    
+    lazy var title: UILabel = {
+        let _title = UILabel()
+        
+        _title.text = "Wallet"
+        _title.textColor = .white
+        _title.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        
+        return _title
     }()
     
     lazy var divider: UIView = {
@@ -58,6 +72,7 @@ class FeedControllerScreen: UIView {
         
         _balance.addSubview(balanceLabel)
         _balance.addSubview(balanceValue)
+        _balance.addSubview(balanceValueToggle)
         
         return _balance;
     }()
@@ -82,8 +97,20 @@ class FeedControllerScreen: UIView {
         return _balanceValue
     }()
     
+    lazy var balanceValueToggle: UIButton = {
+        let _balanceValueToggle = UIButton()
+        let _balanceValueToggleImage = UIImage(systemName: "eye.slash.fill")
+        
+        _balanceValueToggle.setImage(_balanceValueToggleImage, for: .normal)
+        _balanceValueToggle.tintColor = .white
+        
+        return _balanceValueToggle
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.backgroundColor = .white
         self.addSubview(header)
         
         header.snp.makeConstraints { (make) in
@@ -100,6 +127,11 @@ class FeedControllerScreen: UIView {
         avatar.snp.makeConstraints { (make) in
             make.width.height.equalTo(40)
             make.top.equalTo(16)
+        }
+        
+        title.snp.makeConstraints { (make) in
+            make.left.equalTo(avatar.snp.right).offset(16)
+            make.centerY.equalTo(avatar.snp.centerY)
         }
         
         divider.snp.makeConstraints { (make) in
@@ -124,8 +156,10 @@ class FeedControllerScreen: UIView {
             make.centerY.equalTo(balanceLabel)
         }
         
-        backgroundColor = .white
-
+        balanceValueToggle.snp.makeConstraints { (make) in
+            make.right.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
     }
     
     required init?(coder: NSCoder) {
