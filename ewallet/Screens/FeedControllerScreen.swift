@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 import SnapKit
 
+protocol FeedControllerScreenProtocol: UIView {
+    var avatarImage: UIImage? { get set }
+    
+    func setBalance(_ text: String)
+}
+
 class FeedControllerScreen: UIView {
     
     lazy var header: UIView = {
@@ -38,7 +44,6 @@ class FeedControllerScreen: UIView {
         let _avatar = UIImageView()
         
         _avatar.backgroundColor = .white
-        _avatar.image = UIImage(named: "UserAvatar")
         _avatar.layer.cornerRadius = 20
         _avatar.layer.borderWidth = 1
         _avatar.layer.borderColor = UIColor(red: 11/255, green: 232/255, blue: 129/255, alpha: 1).cgColor
@@ -90,7 +95,6 @@ class FeedControllerScreen: UIView {
     lazy var balanceValue: UILabel = {
         let _balanceValue = UILabel()
         
-        _balanceValue.text = "$1,000.00"
         _balanceValue.textColor = .white
         _balanceValue.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         
@@ -166,4 +170,20 @@ class FeedControllerScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+extension FeedControllerScreen: FeedControllerScreenProtocol {
+    var avatarImage: UIImage? {
+        get {
+            return avatar.image
+        }
+        
+        set {
+            avatar.image = newValue
+        }
+    }
+    
+    func setBalance(_ text: String) {
+        balanceValue.text = text
+    }
 }
